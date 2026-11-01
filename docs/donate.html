@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support Cafaine Development — Hassan Elkady</title>
+    <meta name="description" content="Support the development of Cafaine, the free and open-source anti-sleep tool for macOS by Hassan Elkady. Donate via PayPal or Cryptocurrency.">
+    <link rel="icon" type="image/png" href="assets/icon.png">
+    <style>
+        :root {
+            --brand-blue: #007AFF;
+            --brand-cyan: #00AEF2;
+            --text-primary: #1D1D1F;
+            --text-secondary: #515154;
+            --text-muted: #86868B;
+            --bg-page: #FBFBFD;
+            --bg-card: #FFFFFF;
+            --border-light: rgba(0, 0, 0, 0.08);
+            --shadow-md: 0 12px 32px rgba(0, 0, 0, 0.06);
+            --radius-lg: 18px;
+            --radius-pill: 980px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', sans-serif;
+            background-color: var(--bg-page);
+            color: var(--text-primary);
+            line-height: 1.5;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        header {
+            padding: 20px 24px;
+            max-width: 860px;
+            margin: 0 auto;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .back-link {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 0.92rem;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: color 0.15s;
+        }
+
+        .back-link:hover {
+            color: var(--brand-blue);
+        }
+
+        .donate-container {
+            max-width: 600px;
+            margin: 20px auto 60px;
+            padding: 0 24px;
+            width: 100%;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border-radius: var(--radius-lg);
+            padding: 36px;
+            border: 1px solid var(--border-light);
+            box-shadow: var(--shadow-md);
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: var(--radius-pill);
+            background: rgba(0, 122, 255, 0.08);
+            color: var(--brand-blue);
+            font-size: 0.78rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 16px;
+        }
+
+        h1 {
+            font-size: 2.1rem;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            margin-bottom: 10px;
+            line-height: 1.15;
+        }
+
+        .subtitle {
+            font-size: 0.98rem;
+            color: var(--text-secondary);
+            margin-bottom: 28px;
+            line-height: 1.5;
+        }
+
+        .option-box {
+            background: #F5F5F7;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 18px;
+        }
+
+        .option-title {
+            font-size: 1.02rem;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .option-desc {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: 14px;
+        }
+
+        .btn-paypal {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+            background: var(--brand-blue);
+            color: #FFFFFF;
+            text-decoration: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: background 0.15s;
+        }
+
+        .btn-paypal:hover {
+            background: #0066D6;
+        }
+
+        .crypto-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 8px;
+        }
+
+        .crypto-text {
+            flex: 1;
+            font-family: monospace;
+            font-size: 0.82rem;
+            background: #FFFFFF;
+            border: 1px solid var(--border-light);
+            padding: 10px 12px;
+            border-radius: 6px;
+            word-break: break-all;
+            user-select: all;
+            color: var(--brand-blue);
+        }
+
+        .btn-copy {
+            background: #FFFFFF;
+            border: 1px solid var(--border-light);
+            padding: 10px 16px;
+            border-radius: 6px;
+            font-family: inherit;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: background 0.15s;
+        }
+
+        .btn-copy:hover {
+            background: #F0F0F2;
+        }
+
+        footer {
+            padding: 24px;
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            border-top: 1px solid var(--border-light);
+            background: #FFFFFF;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html" class="back-link">&larr; Back to Cafaine</a>
+        <span style="font-size: 0.85rem; color: var(--text-muted);">Hassan Elkady</span>
+    </header>
+
+    <main class="donate-container">
+        <div class="card">
+            <span class="badge">Direct Developer Support</span>
+            <h1>Support Cafaine</h1>
+            <p class="subtitle">
+                Cafaine is 100% free and open-source forever. No paywalls, no tracking, no subscriptions. If it helps you keep your Mac awake, your support is deeply appreciated.
+            </p>
+
+            <!-- PayPal -->
+            <div class="option-box">
+                <div class="option-title">PayPal Donation</div>
+                <p class="option-desc">Quick one-time tip via PayPal to support continued maintenance.</p>
+                <a href="https://paypal.me/HassanElkady2" target="_blank" class="btn-paypal">
+                    Donate via PayPal (paypal.me/HassanElkady2)
+                </a>
+            </div>
+
+            <!-- Crypto -->
+            <div class="option-box">
+                <div class="option-title">Cryptocurrency (USDT)</div>
+                <p class="option-desc">TON Network / TRC20 address:</p>
+                <div class="crypto-row">
+                    <span class="crypto-text" id="cryptoAddr">UQBEJwLa4EGPRmUKw4O1i9d_JjJGmjkJ2myqR5lborzgceT-</span>
+                    <button class="btn-copy" id="copyBtn" onclick="copyCrypto()">Copy</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>Cafaine &bull; Created by Hassan Elkady (&commat;local-over). Released under the MIT License.</p>
+    </footer>
+
+    <script>
+        function copyCrypto() {
+            const addr = document.getElementById('cryptoAddr').innerText;
+            const btn = document.getElementById('copyBtn');
+            navigator.clipboard.writeText(addr).then(() => {
+                btn.textContent = 'Copied!';
+                setTimeout(() => {
+                    btn.textContent = 'Copy';
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>

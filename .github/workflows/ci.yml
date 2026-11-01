@@ -1,0 +1,30 @@
+name: CI Build
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build Cafaine.app
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Build & Package Bundle
+        run: |
+          chmod +x bundle.sh
+          ./bundle.sh
+
+      - name: Verify Application Bundle
+        run: |
+          ls -la Cafaine.app
+          test -f Cafaine.app/Contents/MacOS/Cafaine
+          test -f Cafaine.app/Contents/Info.plist
+          test -f Cafaine.app/Contents/Resources/AppIcon.icns
+          echo "Cafaine.app verification passed!"
