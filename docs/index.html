@@ -116,12 +116,14 @@
             gap: 8px;
             background: var(--brand-blue);
             color: #FFFFFF;
-            text-decoration: none;
             font-size: 0.88rem;
             font-weight: 600;
             padding: 8px 18px;
             border-radius: var(--radius-pill);
             box-shadow: 0 4px 12px rgba(0, 122, 255, 0.25);
+            border: none;
+            cursor: pointer;
+            font-family: inherit;
             transition: all 0.2s;
         }
 
@@ -133,26 +135,13 @@
         /* Hero Header */
         .hero-head {
             max-width: 860px;
-            margin: 48px auto 24px;
+            margin: 54px auto 28px;
             padding: 0 24px;
             text-align: center;
         }
 
-        .hero-kicker {
-            display: inline-block;
-            font-size: 0.82rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: var(--brand-blue);
-            background: rgba(0, 122, 255, 0.08);
-            padding: 5px 12px;
-            border-radius: var(--radius-pill);
-            margin-bottom: 14px;
-        }
-
         .hero-title {
-            font-size: clamp(2.2rem, 5vw, 3.8rem);
+            font-size: clamp(2.3rem, 5vw, 4rem);
             font-weight: 800;
             letter-spacing: -0.04em;
             line-height: 1.1;
@@ -164,7 +153,7 @@
             font-size: clamp(1rem, 1.8vw, 1.2rem);
             color: var(--text-secondary);
             max-width: 620px;
-            margin: 0 auto 28px;
+            margin: 0 auto 30px;
             font-weight: 400;
         }
 
@@ -182,12 +171,14 @@
             gap: 8px;
             background: var(--brand-blue);
             color: #FFFFFF;
-            text-decoration: none;
             font-size: 1rem;
             font-weight: 600;
             padding: 13px 28px;
             border-radius: var(--radius-pill);
             box-shadow: 0 6px 20px rgba(0, 122, 255, 0.28);
+            border: none;
+            cursor: pointer;
+            font-family: inherit;
             transition: all 0.2s;
         }
 
@@ -320,7 +311,7 @@
             border-radius: 12px;
         }
 
-        /* Controls */
+        /* Arrow Controls: Disappear until hover */
         .slider-arrow {
             position: absolute;
             top: 50%;
@@ -340,12 +331,21 @@
             color: var(--text-primary);
             cursor: pointer;
             z-index: 10;
-            transition: all 0.2s;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.25s ease, transform 0.2s ease, background 0.2s;
+        }
+
+        /* Hover on slide stage or wrapper makes arrows smoothly appear */
+        .slider-wrapper:hover .slider-arrow,
+        .slide-stage:hover .slider-arrow {
+            opacity: 1;
+            pointer-events: auto;
         }
 
         .slider-arrow:hover {
             background: #FFFFFF;
-            transform: translateY(-50%) scale(1.06);
+            transform: translateY(-50%) scale(1.08);
             box-shadow: 0 6px 18px rgba(0, 0, 0, 0.16);
         }
 
@@ -528,7 +528,7 @@
         .floating-window {
             background: #FFFFFF;
             width: 90%;
-            max-width: 440px;
+            max-width: 520px;
             border-radius: 18px;
             border: 1px solid var(--border-light);
             box-shadow: 0 24px 60px rgba(0, 0, 0, 0.20);
@@ -587,77 +587,170 @@
             line-height: 1.5;
         }
 
-        .option-box {
+        /* Symmetrical Donation Grid */
+        .donate-grid-symmetric {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .symmetric-card {
             background: #F5F5F7;
-            border-radius: 12px;
-            padding: 16px;
-            margin-bottom: 14px;
+            border: 1px solid var(--border-light);
+            border-radius: 14px;
+            padding: 18px 16px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            text-align: center;
         }
 
-        .option-label {
-            font-size: 0.8rem;
+        .symmetric-head {
+            margin-bottom: 8px;
+        }
+
+        .symmetric-label {
+            font-size: 1.05rem;
             font-weight: 700;
-            color: var(--text-secondary);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-bottom: 6px;
+            color: var(--text-primary);
+            display: block;
         }
 
-        .btn-paypal-modal {
+        .symmetric-sub {
+            font-size: 0.76rem;
+            font-weight: 600;
+            color: var(--brand-blue);
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        .symmetric-desc {
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+            line-height: 1.4;
+            min-height: 38px;
+        }
+
+        .btn-symmetric-primary {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
-            width: 100%;
+            gap: 6px;
             background: var(--brand-blue);
             color: #FFFFFF;
             text-decoration: none;
-            padding: 11px 16px;
+            padding: 10px 14px;
             border-radius: 8px;
             font-weight: 600;
-            font-size: 0.92rem;
+            font-size: 0.88rem;
+            border: none;
+            cursor: pointer;
+            width: 100%;
             transition: background 0.15s;
         }
 
-        .btn-paypal-modal:hover {
+        .btn-symmetric-primary:hover {
             background: #0066D6;
         }
 
-        .crypto-box-row {
+        .btn-symmetric-copy {
             display: flex;
             align-items: center;
-            gap: 8px;
-            margin-top: 6px;
+            justify-content: center;
+            gap: 6px;
+            background: #FFFFFF;
+            color: var(--text-primary);
+            border: 1px solid var(--border-light);
+            padding: 10px 14px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.88rem;
+            cursor: pointer;
+            width: 100%;
+            font-family: inherit;
+            transition: all 0.15s;
         }
 
-        .crypto-address-text {
-            flex: 1;
+        .btn-symmetric-copy:hover {
+            background: #EAEAEF;
+            border-color: rgba(0, 0, 0, 0.16);
+        }
+
+        .crypto-preview-box {
+            background: #F5F5F7;
+            border: 1px solid var(--border-light);
+            padding: 10px 14px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .crypto-addr-display {
             font-family: monospace;
             font-size: 0.78rem;
-            background: #FFFFFF;
-            border: 1px solid var(--border-light);
-            padding: 8px 10px;
-            border-radius: 6px;
             word-break: break-all;
-            user-select: all;
             color: var(--brand-blue);
+            user-select: all;
         }
 
-        .btn-copy-address {
-            background: #FFFFFF;
-            border: 1px solid var(--border-light);
-            padding: 8px 14px;
-            border-radius: 6px;
-            font-family: inherit;
+        /* Installation Guide Steps */
+        .install-step-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        .install-step-item {
+            display: flex;
+            gap: 14px;
+            align-items: flex-start;
+        }
+
+        .step-badge {
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            background: var(--brand-blue);
+            color: #FFFFFF;
             font-size: 0.8rem;
-            font-weight: 600;
-            cursor: pointer;
-            white-space: nowrap;
-            transition: background 0.15s;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-top: 2px;
         }
 
-        .btn-copy-address:hover {
-            background: #F0F0F2;
+        .step-content {
+            flex: 1;
+        }
+
+        .step-title {
+            font-size: 0.95rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+            color: var(--text-primary);
+        }
+
+        .step-desc {
+            font-size: 0.86rem;
+            color: var(--text-secondary);
+            line-height: 1.45;
+        }
+
+        .code-pill {
+            display: block;
+            margin-top: 6px;
+            background: #F5F5F7;
+            border: 1px solid var(--border-light);
+            padding: 6px 10px;
+            border-radius: 6px;
+            font-family: monospace;
+            font-size: 0.78rem;
+            color: var(--text-primary);
+            user-select: all;
         }
 
         .window-footer {
@@ -680,12 +773,11 @@
             cursor: pointer;
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 600px) {
+            .donate-grid-symmetric { grid-template-columns: 1fr; }
             .nav-link { display: none; }
             .hero-head { margin-top: 28px; }
             .slider-arrow { width: 34px; height: 34px; font-size: 0.9rem; }
-            .slider-prev { left: 10px; }
-            .slider-next { right: 10px; }
             .tab-btn { min-width: 90px; font-size: 0.75rem; padding: 7px 8px; }
         }
     </style>
@@ -704,24 +796,23 @@
                 <button class="nav-link" onclick="openModal('aboutModal')">About</button>
                 <button class="nav-link" onclick="openModal('donateModal')">Donate</button>
                 <a href="https://github.com/local-over/decaf" target="_blank" class="nav-link">GitHub</a>
-                <a href="https://github.com/local-over/decaf/releases/latest/download/Cafaine-macos.zip" class="btn-download-nav">
+                <button class="btn-download-nav" onclick="startInstall()">
                     Download Free
-                </a>
+                </button>
             </div>
         </div>
     </nav>
 
     <!-- Hero Header -->
     <header class="hero-head">
-        <div class="hero-kicker">Free &amp; Open Source Native macOS Utility</div>
         <h1 class="hero-title">Keep Your Mac Awake.<br>Zero Cost. Zero Clutter.</h1>
         <p class="hero-desc">
             Cafaine prevents your Mac from sleeping, dimming the screen, or starting screensavers. Built with native Apple IOKit assertions, clamshell lid-closed support, and zero background overhead.
         </p>
         <div class="hero-actions">
-            <a href="https://github.com/local-over/decaf/releases/latest/download/Cafaine-macos.zip" class="btn-main-cta">
+            <button class="btn-main-cta" onclick="startInstall()">
                 Download for macOS
-            </a>
+            </button>
             <button class="btn-popup-cta" onclick="openModal('donateModal')">
                 Support Developer
             </button>
@@ -834,13 +925,14 @@
         <div class="footer-links">
             <button class="footer-link" onclick="openModal('aboutModal')">About Cafaine</button>
             <button class="footer-link" onclick="openModal('donateModal')">Support &amp; Donate</button>
+            <button class="footer-link" onclick="openModal('installModal')">Installation Steps</button>
             <a href="https://github.com/local-over/decaf" target="_blank" class="footer-link">GitHub Repository</a>
             <a href="https://github.com/local-over/decaf/releases/latest" target="_blank" class="footer-link">Latest Release</a>
         </div>
         <p>Cafaine 1.0.0 &bull; Created by Hassan Elkady (&commat;local-over). Released under the MIT License.</p>
     </footer>
 
-    <!-- Floating Modal Window: Donate -->
+    <!-- Symmetrical Floating Modal Window: Donate -->
     <div class="modal-backdrop" id="donateModal" onclick="handleBackdropClick(event, 'donateModal')">
         <div class="floating-window" role="dialog" aria-modal="true" aria-labelledby="donateTitle">
             <div class="window-header">
@@ -848,29 +940,97 @@
                 <button class="window-close-btn" onclick="closeModal('donateModal')" aria-label="Close">&times;</button>
             </div>
             <div class="window-body">
-                <p class="modal-desc">
-                    Cafaine is 100% free and open source, developed by Hassan Elkady. If this tool saves your workflow, consider dropping a tip:
+                <p class="modal-desc" style="text-align: center; margin-bottom: 20px;">
+                    Cafaine is 100% free and open-source by Hassan Elkady.<br>If it helps your daily workflow, consider supporting development:
                 </p>
 
-                <!-- PayPal -->
-                <div class="option-box">
-                    <div class="option-label">PayPal Donation</div>
-                    <a href="https://paypal.me/HassanElkady2" target="_blank" class="btn-paypal-modal">
-                        Donate via PayPal (paypal.me/HassanElkady2)
-                    </a>
+                <!-- Symmetrical 2-Column Grid -->
+                <div class="donate-grid-symmetric">
+                    <!-- Option 1: PayPal -->
+                    <div class="symmetric-card">
+                        <div class="symmetric-head">
+                            <span class="symmetric-label">PayPal</span>
+                            <span class="symmetric-sub">Direct Tip</span>
+                        </div>
+                        <p class="symmetric-desc">Quick one-time tip via card or PayPal balance.</p>
+                        <a href="https://paypal.me/HassanElkady2" target="_blank" class="btn-symmetric-primary">
+                            Open PayPal
+                        </a>
+                    </div>
+
+                    <!-- Option 2: Crypto USDT -->
+                    <div class="symmetric-card">
+                        <div class="symmetric-head">
+                            <span class="symmetric-label">Crypto USDT</span>
+                            <span class="symmetric-sub">TON / TRC20</span>
+                        </div>
+                        <p class="symmetric-desc">Decentralized cryptocurrency transfer.</p>
+                        <button class="btn-symmetric-copy" id="copyBtn" onclick="copyAddress()">
+                            Copy Address
+                        </button>
+                    </div>
                 </div>
 
-                <!-- Crypto USDT -->
-                <div class="option-box">
-                    <div class="option-label">USDT (TON Network / TRC20)</div>
-                    <div class="crypto-box-row">
-                        <span class="crypto-address-text" id="webCryptoAddr">UQBEJwLa4EGPRmUKw4O1i9d_JjJGmjkJ2myqR5lborzgceT-</span>
-                        <button class="btn-copy-address" id="copyBtn" onclick="copyAddress()">Copy</button>
-                    </div>
+                <div class="crypto-preview-box">
+                    <span class="crypto-addr-display" id="webCryptoAddr">UQBEJwLa4EGPRmUKw4O1i9d_JjJGmjkJ2myqR5lborzgceT-</span>
                 </div>
             </div>
             <div class="window-footer">
                 <button class="btn-done" onclick="closeModal('donateModal')">Done</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Modal Window: Installation Steps (Gatekeeper / Privacy & Security) -->
+    <div class="modal-backdrop" id="installModal" onclick="handleBackdropClick(event, 'installModal')">
+        <div class="floating-window" role="dialog" aria-modal="true" aria-labelledby="installTitle">
+            <div class="window-header">
+                <span class="window-title" id="installTitle">Installation &amp; macOS Security</span>
+                <button class="window-close-btn" onclick="closeModal('installModal')" aria-label="Close">&times;</button>
+            </div>
+            <div class="window-body">
+                <p class="modal-desc">
+                    Your download has started. Because Cafaine is free and open-source without an Apple Developer ID signature, follow these simple steps on first launch:
+                </p>
+
+                <div class="install-step-list">
+                    <div class="install-step-item">
+                        <div class="step-badge">1</div>
+                        <div class="step-content">
+                            <div class="step-title">Drag to Applications</div>
+                            <div class="step-desc">
+                                Unzip <code>Cafaine-macos.zip</code> and drag <code>Cafaine.app</code> into your <strong>/Applications</strong> folder. (This also adds it to Launchpad).
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="install-step-item">
+                        <div class="step-badge">2</div>
+                        <div class="step-content">
+                            <div class="step-title">macOS Gatekeeper Permission</div>
+                            <div class="step-desc">
+                                If macOS displays <em>"Cannot verify developer"</em>:
+                                <br>1. Open <strong>System Settings &rarr; Privacy &amp; Security</strong>.
+                                <br>2. Scroll down to <strong>Security</strong>.
+                                <br>3. Click <strong>"Open Anyway"</strong> and confirm with your password or Touch ID.
+                                <span class="code-pill">Or Terminal: xattr -cr /Applications/Cafaine.app</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="install-step-item">
+                        <div class="step-badge">3</div>
+                        <div class="step-content">
+                            <div class="step-title">Look at your Menu Bar</div>
+                            <div class="step-desc">
+                                Cafaine lives strictly in the top Menu Bar as a coffee cup icon. It has no dock clutter. Click the cup or press <strong>Option + C</strong> to activate!
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="window-footer">
+                <button class="btn-done" onclick="closeModal('installModal')">Got it</button>
             </div>
         </div>
     </div>
@@ -1007,6 +1167,7 @@
             } else if (e.key === 'Escape') {
                 closeModal('donateModal');
                 closeModal('aboutModal');
+                closeModal('installModal');
             }
         });
 
@@ -1027,13 +1188,26 @@
             }
         }
 
+        function startInstall() {
+            // Trigger binary zip download
+            const link = document.createElement('a');
+            link.href = 'https://github.com/local-over/decaf/releases/latest/download/Cafaine-macos.zip';
+            link.download = 'Cafaine-macos.zip';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+
+            // Open Installation modal steps
+            openModal('installModal');
+        }
+
         function copyAddress() {
             const addr = document.getElementById('webCryptoAddr').innerText;
             const btn = document.getElementById('copyBtn');
             navigator.clipboard.writeText(addr).then(() => {
                 btn.textContent = 'Copied!';
                 setTimeout(() => {
-                    btn.textContent = 'Copy';
+                    btn.textContent = 'Copy Address';
                 }, 2000);
             });
         }
