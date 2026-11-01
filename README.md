@@ -22,24 +22,6 @@ Website and Interactive Showcase: **[local-over.github.io/decaf](https://local-o
 
 ---
 
-## Slide Gallery
-
-<details open>
-<summary><b>Click to expand high-resolution App Store slides</b></summary>
-<br>
-
-| 1. Keep Your Mac Awake | 2. Simple Design (Dark Mode) |
-| :---: | :---: |
-| <a href="assets/screenshot-1.png"><img src="assets/screenshot-1.png" width="420" /></a> | <a href="assets/screenshot-2.png"><img src="assets/screenshot-2.png" width="420" /></a> |
-| **3. Advanced Options** | **4. Quick Access** |
-| <a href="assets/screenshot-3.png"><img src="assets/screenshot-3.png" width="420" /></a> | <a href="assets/screenshot-4.png"><img src="assets/screenshot-4.png" width="420" /></a> |
-| **5. 100% Free Forever** | |
-| <a href="assets/screenshot-5.png"><img src="assets/screenshot-5.png" width="420" /></a> | |
-
-</details>
-
----
-
 ## Features
 
 - **Single-Click Activation:** Click the coffee cup in your menu bar to toggle active and inactive states.
@@ -51,21 +33,6 @@ Website and Interactive Showcase: **[local-over.github.io/decaf](https://local-o
 - **Launch at Login:** Native integration with macOS Service Management.
 - **Global Keyboard Shortcut:** Toggle sleep prevention with `⌥C` (Option + C).
 - **Zero Dependencies:** Built in pure Swift using native Apple IOKit power management APIs. Uses ~15MB RAM and 0% CPU.
-
----
-
-## Comparison: Cafaine vs. Mac App Store Commercial Apps
-
-| Feature | Cafaine (Open Source) | Commercial App Store Apps |
-| :--- | :---: | :---: |
-| Price | **$0.00 (Free Forever)** | $3.99 / Paid |
-| License | MIT License | Proprietary / Closed Source |
-| Native IOKit APIs | Yes | Yes |
-| Custom Durations | Yes | Yes |
-| Closed-Lid Support | Yes | Yes |
-| Power Source Automation | Yes | Yes |
-| Telemetry & Tracking | Zero (Offline) | Proprietary analytics |
-| Dock Icon | None (Strictly Menu Bar) | None |
 
 ---
 
