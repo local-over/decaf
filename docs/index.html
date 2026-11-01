@@ -863,13 +863,13 @@
                 <button class="nav-link" onclick="openModal('aboutModal')">About</button>
                 <button class="nav-link" onclick="openModal('donateModal')">Donate</button>
                 <a href="https://github.com/local-over/decaf" target="_blank" class="nav-link">GitHub</a>
-                <a href="https://github.com/local-over/decaf/releases/latest/download/Cafaine-macos.zip" class="btn-download-nav download-release-link" onclick="startInstall(event)">
+                <a href="https://github.com/local-over/decaf/releases/latest/download/Cafaine.dmg" class="btn-download-nav download-release-link" onclick="startInstall(event)">
                     <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
                         <polyline points="7 10 12 15 17 10"></polyline>
                         <line x1="12" y1="15" x2="12" y2="3"></line>
                     </svg>
-                    <span>Download Free</span>
+                    <span>Download DMG</span>
                 </a>
             </div>
         </div>
@@ -882,13 +882,13 @@
             Cafaine prevents your Mac from sleeping, dimming the screen, or starting screensavers. Built with native Apple IOKit assertions, clamshell lid-closed support, and zero background overhead.
         </p>
         <div class="hero-actions">
-            <a href="https://github.com/local-over/decaf/releases/latest/download/Cafaine-macos.zip" class="btn-main-cta download-release-link" id="heroDownloadBtn" onclick="startInstall(event)">
+            <a href="https://github.com/local-over/decaf/releases/latest/download/Cafaine.dmg" class="btn-main-cta download-release-link" id="heroDownloadBtn" onclick="startInstall(event)">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
                     <polyline points="7 10 12 15 17 10"></polyline>
                     <line x1="12" y1="15" x2="12" y2="3"></line>
                 </svg>
-                <span>Download for macOS</span>
+                <span>Download for macOS (.dmg)</span>
                 <span class="btn-tag-pill release-tag-val">v1.0.0</span>
             </a>
             <button class="btn-popup-cta" onclick="openModal('donateModal')">
@@ -1074,18 +1074,18 @@
                 <div class="download-callout-card">
                     <div class="download-callout-info">
                         <div class="download-callout-title">
-                            <span>Cafaine-macos.zip</span>
+                            <span>Cafaine.dmg</span>
                             <span class="brand-tag release-tag-val">v1.0.0</span>
                         </div>
-                        <span class="download-callout-meta">Compiled Universal Binary for macOS 13+ (Apple Silicon &amp; Intel)</span>
+                        <span class="download-callout-meta">Native Apple Disk Image (Universal for Apple Silicon &amp; Intel)</span>
                     </div>
-                    <a href="https://github.com/local-over/decaf/releases/latest/download/Cafaine-macos.zip" class="btn-callout-download download-release-link">
+                    <a href="https://github.com/local-over/decaf/releases/latest/download/Cafaine.dmg" class="btn-callout-download download-release-link">
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
                             <polyline points="7 10 12 15 17 10"></polyline>
                             <line x1="12" y1="15" x2="12" y2="3"></line>
                         </svg>
-                        <span>Download Latest (.zip)</span>
+                        <span>Download DMG</span>
                     </a>
                 </div>
 
@@ -1093,9 +1093,9 @@
                     <div class="install-step-item">
                         <div class="step-badge">1</div>
                         <div class="step-content">
-                            <div class="step-title">Drag to Applications</div>
+                            <div class="step-title">Mount and Drag to Applications</div>
                             <div class="step-desc">
-                                Unzip <code>Cafaine-macos.zip</code> and drag <code>Cafaine.app</code> into your <strong>/Applications</strong> folder. (This also adds it to Launchpad).
+                                Open <code>Cafaine.dmg</code> and drag <code>Cafaine.app</code> into the <strong>Applications</strong> shortcut. (This installs it and indexes it in Launchpad).
                             </div>
                         </div>
                     </div>
@@ -1287,7 +1287,7 @@
             }
         }
 
-        let latestDownloadUrl = 'https://github.com/local-over/decaf/releases/latest/download/Cafaine-macos.zip';
+        let latestDownloadUrl = 'https://github.com/local-over/decaf/releases/latest/download/Cafaine.dmg';
         let latestReleaseTag = 'v1.0.0';
 
         // Dynamically query latest release metadata from GitHub API
@@ -1297,9 +1297,14 @@
                 .then(data => {
                     if (!data) return;
                     if (data.assets && data.assets.length > 0) {
-                        const zip = data.assets.find(a => a.name.endsWith('.zip')) || data.assets[0];
-                        if (zip && zip.browser_download_url) {
-                            latestDownloadUrl = zip.browser_download_url;
+                        const dmg = data.assets.find(a => a.name.endsWith('.dmg'));
+                        if (dmg && dmg.browser_download_url) {
+                            latestDownloadUrl = dmg.browser_download_url;
+                        } else {
+                            const zip = data.assets.find(a => a.name.endsWith('.zip')) || data.assets[0];
+                            if (zip && zip.browser_download_url) {
+                                latestDownloadUrl = zip.browser_download_url;
+                            }
                         }
                     }
                     if (data.tag_name) {

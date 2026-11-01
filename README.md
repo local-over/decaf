@@ -39,8 +39,8 @@ Website and Interactive Showcase: **[local-over.github.io/decaf](https://local-o
 ## Installation
 
 ### Pre-built Compiled Release
-1. Download **[Cafaine-macos.zip (Latest Release)](https://github.com/local-over/decaf/releases/latest/download/Cafaine-macos.zip)** (Universal binary for Apple Silicon and Intel).
-2. Unzip and drag `Cafaine.app` into `/Applications` (this also indexes it for Launchpad).
+1. Download **[Cafaine.dmg (Apple Disk Image)](https://github.com/local-over/decaf/releases/latest/download/Cafaine.dmg)** (or [Cafaine-macos.zip](https://github.com/local-over/decaf/releases/latest/download/Cafaine-macos.zip)).
+2. Open `Cafaine.dmg` and drag `Cafaine.app` into the **Applications** shortcut.
 3. If macOS displays *"Cannot verify developer"*, go to **System Settings → Privacy & Security** and click **"Open Anyway"** (or run `xattr -cr /Applications/Cafaine.app` in Terminal).
 4. Launch Cafaine. It runs quietly in your top menu bar with zero Dock clutter. Click the coffee cup or press `⌥C` to activate.
 

@@ -21,10 +21,12 @@ jobs:
           chmod +x bundle.sh
           ./bundle.sh
 
-      - name: Verify Application Bundle
+      - name: Verify Application Bundle and DMG
         run: |
           ls -la Cafaine.app
           test -f Cafaine.app/Contents/MacOS/Cafaine
           test -f Cafaine.app/Contents/Info.plist
           test -f Cafaine.app/Contents/Resources/AppIcon.icns
-          echo "Cafaine.app verification passed!"
+          test -f Cafaine.dmg
+          test -f Cafaine-macos.zip
+          echo "Cafaine.app, Cafaine.dmg, and zip verification passed!"

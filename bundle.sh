@@ -62,3 +62,17 @@ cat <<EOF > "${CONTENTS_DIR}/Info.plist"
 EOF
 
 echo "Successfully created ${APP_BUNDLE}!"
+
+echo "Creating native macOS Disk Image (${APP_NAME}.dmg)..."
+rm -rf dmg_staging "${APP_NAME}.dmg"
+mkdir -p dmg_staging
+cp -R "${APP_BUNDLE}" dmg_staging/
+ln -s /Applications dmg_staging/Applications
+hdiutil create -volname "${APP_NAME}" -srcfolder dmg_staging -ov -format UDZO "${APP_NAME}.dmg"
+rm -rf dmg_staging
+
+echo "Packaging Cafaine-macos.zip..."
+rm -f Cafaine-macos.zip
+zip -r -y Cafaine-macos.zip "${APP_BUNDLE}"
+
+echo "Successfully built ${APP_NAME}.app, ${APP_NAME}.dmg, and Cafaine-macos.zip!"

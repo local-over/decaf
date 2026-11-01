@@ -19,13 +19,13 @@ jobs:
         run: |
           chmod +x bundle.sh
           ./bundle.sh
-          rm -f Cafaine-macos.zip
-          zip -r -y Cafaine-macos.zip Cafaine.app
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         if: startsWith(github.ref, 'refs/tags/')
         with:
-          files: Cafaine-macos.zip
+          files: |
+            Cafaine.dmg
+            Cafaine-macos.zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
